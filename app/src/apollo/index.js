@@ -22,22 +22,12 @@ const authLink = setContext(async (req, { headers }) => {
 const httpLink = new HttpLink({
     uri,
     credentials: 'same-origin',
-    fetchOptions: {
-        mode: 'no-cors',
-      },
 })
   
 
 export const client = new ApolloClient({
-    link: ApolloLink.from([
-        httpLink,
-        createUploadLink({ 
-            uri
-        }),
-        authLink,
-      ]),
+    link: authLink.concat(httpLink),
     cache: new InMemoryCache()
-    
   });
 
   

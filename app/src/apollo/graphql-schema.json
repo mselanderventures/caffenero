@@ -32,7 +32,7 @@
             "deprecationReason": null
           },
           {
-            "name": "getUser",
+            "name": "user",
             "description": null,
             "args": [],
             "type": {
@@ -404,6 +404,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "company",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "CompanyType",
               "ofType": null
             },
             "isDeprecated": false,

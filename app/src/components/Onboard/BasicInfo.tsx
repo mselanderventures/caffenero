@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { useMutation } from '@apollo/client';
+import { getAuth } from '@firebase/auth';
 import { Button, Form, Input, message, Upload } from 'antd';
 import { UploadChangeParam } from 'antd/lib/upload';
 import React, { FC, useEffect, useState } from 'react';
@@ -59,16 +60,16 @@ const BasicInfo: FC<BasicInfoProps> = (props: BasicInfoProps) => {
                 }
             }
         })
-
-
-        
     }
 
+    const auth = getAuth()
     useEffect(() => {
         if (data) {
             onFinished();
         } else {
-            message.error(error)
+            if (error) {
+                message.error(error)
+            }
         }
     }, [data, error])
 
@@ -176,8 +177,8 @@ const BasicInfo: FC<BasicInfoProps> = (props: BasicInfoProps) => {
                                         <Flex
                                             sx={{
                                                 position: 'relative',
-                                                width: 200,
-                                                height: 200,
+                                                width: 125,
+                                                height: 125,
                                                 justifyContent: 'center',
                                                 alignContent: 'center',
                                                 alignItems: 'center',
@@ -186,8 +187,8 @@ const BasicInfo: FC<BasicInfoProps> = (props: BasicInfoProps) => {
                                         >
                                             <img
                                                 src={logoImageUrl}
-                                                width={200}
-                                                height={200}
+                                                width={125}
+                                                height={125}
                                                 style={{
                                                     alignSelf: 'stretch',
                                                     borderRadius: 100,
@@ -218,9 +219,9 @@ const BasicInfo: FC<BasicInfoProps> = (props: BasicInfoProps) => {
                                     ) : (
                                         <Flex
                                             sx={{
-                                                width: 200,
-                                                height: 200,
-                                                backgroundColor: 'DCDCDC',
+                                                width: 125,
+                                                height: 125,
+                                                backgroundColor: '#ECECEC',
                                                 border: 'dashed gray',
                                                 borderWidth: 2,
                                                 justifyContent: 'center',
@@ -245,7 +246,7 @@ const BasicInfo: FC<BasicInfoProps> = (props: BasicInfoProps) => {
                                                         theme.space.small,
                                                 }}
                                             >
-                                                Upload
+                                                Upload Logo
                                             </Flex>
                                         </Flex>
                                     )}

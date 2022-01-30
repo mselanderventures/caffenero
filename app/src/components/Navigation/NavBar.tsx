@@ -28,7 +28,7 @@ export default function NavBar(props: NavBarProps) {
             }}
         >
             {items.map((item) => {
-                return <NavBarItemElement key={item.title}  item={item} />;
+                return <NavBarItemElement key={item.title} item={item} />;
             })}
         </Flex>
     );

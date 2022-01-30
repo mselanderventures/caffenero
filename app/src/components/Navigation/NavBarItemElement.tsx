@@ -7,6 +7,7 @@ import { NavBarItem } from './NavBar';
 import useHover from '../../hooks/useHover';
 import { useRouter } from 'next/router';
 import { CustomIcon } from '../CustomIcon';
+import { useEffect } from 'react';
 
 export type NavBarItemProps = {
     item: NavBarItem;
@@ -17,11 +18,23 @@ export default function NavBarItemElement(props: NavBarItemProps) {
     const { item } = props;
 
     const [hoverRef, isHovered] = useHover<HTMLDivElement>();
-    const router = useRouter()
+    const router = useRouter();
 
-    const { query: { tab }} = router
+    const {
+        query: { tab },
+    } = router;
 
-    const isBold = isHovered || tab == item.path
+    useEffect(() => {
+        if (!tab) {
+            router.push({
+                query: {
+                    tab: 'home',
+                },
+            });
+        }
+    }, [tab]);
+
+    const isBold = isHovered || tab == item.path;
 
     return (
         <Flex
@@ -32,13 +45,15 @@ export default function NavBarItemElement(props: NavBarItemProps) {
                 marginLeft: theme.space.larger,
                 display: 'flex',
                 flexDirection: 'row',
-                marginBottom: theme.space.large
+                marginBottom: theme.space.large,
             }}
-            onClick={() => router.push({
-                query: {
-                    tab: item.path
-                }
-            })}
+            onClick={() =>
+                router.push({
+                    query: {
+                        tab: item.path,
+                    },
+                })
+            }
         >
             <Flex
                 sx={{
@@ -47,16 +62,20 @@ export default function NavBarItemElement(props: NavBarItemProps) {
                     opacity: isBold ? 1.0 : 0.8,
                 }}
             >
-                <CustomIcon iconName={item.iconName} size={20}  strokeWidth={2} color={isBold ? theme.colors.primary : 'rgba(0,0,0,0.6)'}/>
+                <CustomIcon
+                    iconName={item.iconName}
+                    size={20}
+                    strokeWidth={2}
+                    color={isBold ? theme.colors.primary : 'rgba(0,0,0,0.6)'}
+                />
             </Flex>
 
             <Text
                 sx={{
-                    color: isBold ? 'black':'rgba(0,0,0,0.6)',
+                    color: isBold ? 'black' : 'rgba(0,0,0,0.6)',
                     fontSize: 18,
                     fontFamily: 'Trebuchet MS',
                     fontWeight: isBold ? '500' : '400',
-                    
                 }}
             >
                 {item.title}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Form } from 'antd';
 
 export function hasErrors(errorObject: any) {
-    return Object.keys(errorObject).length > 0;
+    return errorObject && Object.keys(errorObject).length > 0;
 }
 
 export function useForm(validate: (values) => any, submit: (values) => any) {

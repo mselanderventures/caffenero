@@ -20,7 +20,7 @@ export default function Login() {
                     <div className="container">
                         <div className="logo-container">
                             <Logo
-                                black
+                                black={"true"}
                                 height={56}
                                 style={{ display: 'block', margin: 'auto' }}
                             />

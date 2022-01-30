@@ -40,8 +40,7 @@ export default function Landing() {
                                 color: 'white',
                             }}
                         >
-                            Get exclusive deals on food at all your favorite
-                            restaurants when you bring your friends
+                            Get exclusive deals on food when you bring your friends
                         </p>
                     </Fade>
                     <Fade bottom>

@@ -88,7 +88,7 @@ export const RegisterComponentForm: FC<RegisterComponentFormProps> = (
             onFinish={handleSubmit}
             layout="vertical"
         >
-            <h2 style={{ alignContent: 'center' }}>Business Login</h2>
+            <h2 style={{ alignContent: 'center' }}>Business Sign-Up</h2>
             <Flex>
                 <Flex
                     sx={{
