@@ -13,6 +13,8 @@ export function useForm(validate: (values) => any, submit: (values) => any) {
     const [loading, setLoading] = useState(false)
     const [hasValidated, setHasValidated] = useState(false)
 
+    const [hasBeenEdited, setHasBeenEdited] = useState(false)
+
     const handleSubmit = async (values) => {
         setLoading(true)
         const newErrors = await validate(values);
@@ -22,25 +24,40 @@ export function useForm(validate: (values) => any, submit: (values) => any) {
             setLoading(false)
             return;
         }
-        return submit(values);
+        const res = submit(values)
+        setHasBeenEdited(false)
+        setLoading(false)
+        return res;
     }
 
     const handleValuesChanged = async (_, values) => {
+        if (!hasBeenEdited) {
+            setHasBeenEdited(true)
+        }
         if (hasValidated) {
             const newErrors = await validate(values);
             setErrors(newErrors)
         }       
         setValues(values) 
+        
     };
+
+    const resetForm = () => {
+        setHasBeenEdited(false)
+        form.resetFields()
+    }
 
     return {
         form, 
         errors,
         values,
         loading, 
+        hasBeenEdited,
+        setHasBeenEdited,
         setLoading,
         setErrors, 
         handleSubmit,
-        handleValuesChanged
+        handleValuesChanged,
+        resetForm
     }
 }

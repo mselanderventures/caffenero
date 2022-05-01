@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Flex, Text } from 'theme-ui';
 import { PageTitle } from '../components/PageTitle';
 import theme from '../styles/theme';
@@ -6,12 +6,16 @@ import * as Icon from 'react-feather';
 import useHover from '../hooks/useHover';
 import { SubTitle } from '../components/SubTitle';
 import { CustomIcon } from '../components/CustomIcon';
-import { Card } from 'antd';
+import { Card, Modal } from 'antd';
+import { EditDeal } from '../components/Deals/EditDeal';
+import { EditLocation } from '../components/Locations/EditLocation';
 
 const { Meta } = Card
 
 export default function Locations() {
     const [hoverRef, isHovered] = useHover<HTMLDivElement>();
+    const [addLocationVisible, setAddLocationVisible] = useState(false)
+
     return (
         <Flex
             sx={{
@@ -19,6 +23,15 @@ export default function Locations() {
                 width: '100%'
             }}
         >
+            <Modal
+                title="Add New Location"
+                visible={addLocationVisible}
+                onOk={null}
+                onCancel={() => setAddLocationVisible(false)}
+                width={800}
+            >
+                <EditLocation />
+            </Modal>
             <PageTitle>Locations</PageTitle>
 
             <SubTitle style={{ marginTop: 20 }}>My locations</SubTitle>
@@ -29,7 +42,7 @@ export default function Locations() {
                     style={{
                         width: 240,
                     }}
-                    onClick={() => null}
+                    onClick={() => setAddLocationVisible(true)}
                     cover={
                         <Flex
                             sx={{

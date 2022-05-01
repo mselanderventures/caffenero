@@ -1,9 +1,11 @@
 import { useQuery } from '@apollo/client';
-import { Form, Input } from 'antd';
+import { Flex } from '@theme-ui/components';
+import { Button, Form, Input, Spin } from 'antd';
 import React, { FC } from 'react';
 import { GET_USER } from '../../apollo/queries/GetUser';
 import { GetUser } from '../../apollo/queries/__generated__/GetUser';
 import { useForm } from '../../services/useForm';
+import theme from '../../styles/theme';
 import { PageTitle } from '../PageTitle';
 import { SubTitle } from '../SubTitle';
 
@@ -13,6 +15,8 @@ export const AccountSettings: FC = () => {
         errors: accountErrors,
         handleSubmit: handleAccountSubmit,
         handleValuesChanged: handleAccountValuesChanged,
+        hasBeenEdited,
+        resetForm
     } = useForm(
         () => null,
         () => null
@@ -22,26 +26,49 @@ export const AccountSettings: FC = () => {
 
     return (
         <>
-            <SubTitle style={{ marginTop: 20 }}>Account</SubTitle>
-            <Form
-                    form={accountForm}
-                    onValuesChange={handleAccountValuesChanged}
-                    onFinish={handleAccountSubmit}
-                    layout="vertical"
-                    style={{
-                        width: 400,
-                    }}
-                >
-                    <Form.Item
-                        validateStatus={accountErrors['name'] ? 'error' : 'success'}
-                        help={accountErrors['name']}
-                        name="name"
-                        label="Email"
+            <SubTitle style={{ marginTop: 48, marginBottom: theme.space.medium }}>Account</SubTitle>
+            <Flex
+                style={{
+                    width: 400,
+                    flexDirection: "column"
+                }}
+            >
+                
+                {loading ? (
+                    <Spin/>
+                ) : (
+                    <Form
+                        form={accountForm}
+                        onValuesChange={handleAccountValuesChanged}
+                        onFinish={handleAccountSubmit}
+                        layout="vertical"
                     >
-                        <Input size="large" placeholder={data.user.email} disabled={true}/>
-                    </Form.Item>
-
-            </Form>
+                        <Form.Item
+                            validateStatus={
+                                accountErrors['name'] ? 'error' : 'success'
+                            }
+                            help={accountErrors['name']}
+                            name="name"
+                            label="Email"
+                        >
+                            <Input
+                                size="large"
+                                placeholder={data?.user.email}
+                                disabled={true}
+                            />
+                        </Form.Item>
+                        <Form.Item  style={{}}>
+                            <Button
+                                type="default"
+                                size="large"
+                                style={{}}
+                            >
+                                Change Password
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                )}
+            </Flex>
         </>
     );
 };

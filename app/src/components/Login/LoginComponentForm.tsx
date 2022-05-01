@@ -1,8 +1,9 @@
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import { useRouter } from 'next/router';
 import React, { FC, useState } from 'react';
 import { Flex } from 'theme-ui';
 import { useForm } from '../../services/useForm';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 type LoginComponentFormProps = {};
 
@@ -15,7 +16,23 @@ export const LoginComponentForm: FC<LoginComponentFormProps> = (
     const { form, errors, setErrors, handleSubmit, handleValuesChanged } =
         useForm(() => null, submitLogin);
 
+    const auth = getAuth()
+
     async function submitLogin(values) {
+        signInWithEmailAndPassword(auth, values.email, values.password)
+        .then( async (userCredential) => {
+            const user = userCredential.user;
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            if (errorCode == 'auth/invalid-email') {
+                setErrors({ email: 'Please enter a valid email' });
+            } else if (errorCode == 'auth/email-already-in-use') {
+                setErrors({ email: 'This email is already in use' });
+            } else {
+                message.error(error.message);
+            }
+        });
         if (redirectPath) router.push(`/${redirectPath}`);
 
         router.push('/admin');

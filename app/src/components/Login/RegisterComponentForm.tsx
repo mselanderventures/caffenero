@@ -6,6 +6,8 @@ import { useForm } from '../../services/useForm';
 import validator from 'validator';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useHistory } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ONBOARD_BASIC_INFO } from '../../apollo/mutations/UpdateBasicInfo';
 
 type RegisterComponentFormProps = {};
 
@@ -53,20 +55,31 @@ export const RegisterComponentForm: FC<RegisterComponentFormProps> = (
 
     const auth = getAuth();
 
+    const [updateUser, {data, error}] = useMutation(ONBOARD_BASIC_INFO);
+
     async function submitRegister(values) {
         createUserWithEmailAndPassword(auth, values.email, values.password)
-            .then((userCredential) => {
+            .then( async (userCredential) => {
                 const user = userCredential.user;
+                const res = await updateUser({
+                    variables: {
+                        input: {
+                            name: values.name,
+                            businessName: values.businessName,
+                        }
+                    }
+                })
+                console.log(res)
                 router.push({
-                    pathname: '/onboard',
+                    pathname: '/admin',
                     query: {
                         name: values.name,
                         businessName: values.businessName,
                     },
                 }, {
-                    pathname: '/onboard'
+                    pathname: '/admin'
                 });
-                setLoading(false);
+                // setLoading(false);
             })
             .catch((error) => {
                 const errorCode = error.code;
