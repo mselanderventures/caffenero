@@ -19,7 +19,11 @@ export interface SecurePageProps {
 }
 
 export default function SecurePage(props: SecurePageProps) {
-    const title = props.title ? `${props.title} | Squad Eats` : 'Squad Eats';
+    const title = props.title
+        ? `${props.title} | Atlas MBA`
+        : 'Atlas MBA';
+
+    
 
     const header = props.header || <PageHeader />;
     const left = props.leftContent;
@@ -31,15 +35,14 @@ export default function SecurePage(props: SecurePageProps) {
         <>
             <Head>
                 <title>{title}</title>
-                <link rel="icon" href="/noodles-white.png" />
+                <link rel="icon" href="./compass.png" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
                     rel="stylesheet"
                 />
-                <meta property="og:title" content="~ Teeth Whitening" />
-                <meta property="og:image" content="/stock-6.jpg" />
-                <script src="https://maps.googleapis.com/maps/api/js?&v=3.exp&libraries=geometry,drawing,places"></script>
+                <meta property="og:title" content="Atlas MBA App Checklist" />
+                <meta property="og:image" content="./screenshot.png" />
             </Head>
             <script
                 defer

@@ -34,7 +34,7 @@ export default function Home() {
             
             <PageTitle>Welcome!</PageTitle>
 
-            <SubTitle style={{ marginTop: 20 }}>My Deals</SubTitle>
+            {/* <SubTitle style={{ marginTop: 20 }}>My Deals</SubTitle> */}
 
             <Card
                 hoverable
@@ -62,9 +62,9 @@ export default function Home() {
 
             
 
-            <SubTitle style={{ marginTop: 40 }}>
+            {/* <SubTitle style={{ marginTop: 40 }}>
                 Suggested Deals
-            </SubTitle>
+            </SubTitle> */}
         </Flex>
     );
 }

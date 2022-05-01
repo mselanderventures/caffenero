@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Head from 'next/head'
-import PageHeader from '../containers/Page/PageHeader'
-import LogoHeader from '../containers/Page/LogoHeader';
+import LogoHeader from '../components/LogoHeader';
 
 export interface LogoOnlyPageProps {
     children: any;

@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import { HomeOutlined } from '@ant-design/icons';
 import { jsx, Flex, Text, Link } from 'theme-ui';
 import theme from '../../styles/theme';
