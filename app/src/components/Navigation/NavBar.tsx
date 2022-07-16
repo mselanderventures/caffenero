@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import { jsx, Flex } from 'theme-ui';
 import theme from '../../styles/theme';
 import { IconName } from '../CustomIcon';

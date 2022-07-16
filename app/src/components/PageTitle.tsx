@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import React, { FC } from 'react';
 import { Flex, Text, jsx, ThemeUIStyleObject } from 'theme-ui';
 import theme from '../styles/theme';

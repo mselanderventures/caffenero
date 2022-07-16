@@ -1,5 +1,4 @@
 import SecurePage from '../layouts/SecurePage';
-import PageContent from '../containers/Page/PageContent';
 // import { Client } from '@SVM/lib'
 import auth from '../services/auth'
 

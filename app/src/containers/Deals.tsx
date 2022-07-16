@@ -23,7 +23,7 @@ export default function Deals() {
                 width: '100%',
             }}
         >
-            <Modal
+            {/* <Modal
                 title="Create New Deal"
                 visible={addDealVisible}
                 onOk={null}
@@ -66,7 +66,7 @@ export default function Deals() {
 
             <SubTitle style={{ marginTop: 40 }}>
                 Suggested Deals
-            </SubTitle>
+            </SubTitle> */}
         </Flex>
     );
 }

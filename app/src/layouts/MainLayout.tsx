@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import { useRouter } from 'next/router'
 import { jsx, Flex } from 'theme-ui'
 import Deals from '../containers/Deals'

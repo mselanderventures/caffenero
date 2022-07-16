@@ -25,7 +25,7 @@ export default function Landing() {
                                 color: 'white',
                             }}
                         >
-                            Free food with friends.
+                            Take Control of your MBA Application
                         </h1>
                     </Fade>
                     <Fade bottom>
@@ -40,8 +40,7 @@ export default function Landing() {
                                 color: 'white',
                             }}
                         >
-                            Get exclusive deals on food at all your favorite
-                            restaurants when you bring your friends
+                            
                         </p>
                     </Fade>
                     <Fade bottom>
@@ -81,7 +80,7 @@ export default function Landing() {
                 <div className="right-content">
                     <Fade bottom>
                         <img
-                            src="./ScreenshotSquadEats.png"
+                            src="./screenshot.png"
                             className="image"
                             style={{ width: 350, margin: 'auto' }}
                         />

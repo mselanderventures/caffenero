@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 import { Flex, Text, jsx } from 'theme-ui';
@@ -66,12 +65,12 @@ const Onboard: FC = (props: any) => {
                             <Step key={item.title} title={item.title} />
                         ))}
                     </Steps>
-                    {currentStep == 0 && 
-                     <BasicInfo name={name} businessName={businessName} onFinished={() => setCurrentStep(1)}/>
+                    {/* {currentStep == 0 && 
+                    //  <BasicInfo name={name} businessName={businessName} onFinished={() => setCurrentStep(1)}/>
                     }
                     {currentStep == 1 && 
-                     <BasicInfo name={name} businessName={businessName} onFinished={() => setCurrentStep(1)}/>
-                    }
+                    //  <BasicInfo name={name} businessName={businessName} onFinished={() => setCurrentStep(1)}/>
+                    } */}
                 </Flex>
             </Flex>
         </>

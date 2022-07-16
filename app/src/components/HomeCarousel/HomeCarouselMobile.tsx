@@ -6,8 +6,8 @@ import {
 import { Button, Carousel } from 'antd';
 import { useRouter } from 'next/router';
 import React from 'react';
-import StockImage from '../StockImage';
-import StockImageContainer from '../StockImageContainer';
+// import StockImage from '../StockImage';
+// import StockImageContainer from '../StockImageContainer';
 
 export default function HomeCarouselMobile() {
     const router = useRouter();
@@ -17,7 +17,7 @@ export default function HomeCarouselMobile() {
     }
     return (
         <>
-            <div className="carousel-container">
+            {/* <div className="carousel-container">
                 <Carousel
                     autoplay
                     initialSlide={1}
@@ -128,7 +128,7 @@ export default function HomeCarouselMobile() {
                     height: 100%;
                     position: relative;
                 }
-            `}</style>
+            `}</style> */}
         </>
     );
 }
