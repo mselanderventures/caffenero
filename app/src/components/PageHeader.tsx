@@ -19,12 +19,7 @@ export default function PageHeader() {
 
     const menu = (
         <>
-            <Menu>
-                <Menu.Item key={'download-now'}>
-                    <a className="dowload-now" href={""}>
-                        Download Now
-                    </a>
-                </Menu.Item>
+            <Menu theme="light">
                 {reverseHeaderItems.map((item) => {
                     return (
                         <Menu.Item key={item.path}>
@@ -37,14 +32,12 @@ export default function PageHeader() {
             </Menu>
             <style jsx>{`
                 .dropdown-item {
-                    color: red;
                     text-align: left;
                     padding: 14px 32px;
                     text-decoration: none;
                     font-size: 16px;
                 }
                 .dropdown-item:hover {
-                    color: red;
                     text-align: left;
                     padding: 14px 32px;
                     text-decoration: none;
@@ -62,7 +55,7 @@ export default function PageHeader() {
             <header>
                 <div className="navbar">
                     <div className="logo">
-                        <Logo height={50}/>
+                        <Logo height={50} />
                     </div>
                     {width < 400 ? <div></div> : <div className="name"></div>}
                     <div></div>
@@ -70,8 +63,8 @@ export default function PageHeader() {
                         <div>
                             <Dropdown overlay={menu} placement="bottomRight">
                                 <div className="hamburger header-item">
-                                    <MenuOutlined
-                                        style={{ fontSize: '30px' }}
+                                    <MenuOutlined color="white"
+                                        style={{ fontSize: '30px', color: 'white' }}
                                     />
                                 </div>
                             </Dropdown>
@@ -177,8 +170,17 @@ export default function PageHeader() {
 }
 
 const HEADER_ITEMS = [
+
     {
-        name: 'Business Login',
-        path: '/login',
+        name: 'Privacy Policy',
+        path: '/privacy',
+    },
+    {
+        name: 'Support',
+        path: '/support',
+    },
+    {
+        name: 'Download',
+        path: '/',
     },
 ];

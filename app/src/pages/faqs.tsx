@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import PageContent from '../containers/Page/PageContent';
 import SecurePage from '../layouts/SecurePage';
 import { Fade } from 'react-reveal';
+import PageContent from '../components/PageContent';
 
 export default function FAQs() {
     return (

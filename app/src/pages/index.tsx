@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useWindowDimensions } from '../services/useWindowDimensions';
 import Landing from '../containers/Landing';
+import LandingMobile from '../containers/LandingMobile';
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
             <SecurePage>
                 {isMobile ? (
                     <>
+                        <LandingMobile/>
                     </>
                 ) : (
                     <>

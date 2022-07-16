@@ -21,7 +21,7 @@ export default function Locations() {
         >
             <PageTitle>Locations</PageTitle>
 
-            <SubTitle style={{ marginTop: 20 }}>My locations</SubTitle>
+            {/* <SubTitle style={{ marginTop: 20 }}>My locations</SubTitle> */}
 
             <Box>
                 <Card
