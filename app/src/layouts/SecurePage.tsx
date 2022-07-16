@@ -42,8 +42,8 @@ export default function SecurePage(props: SecurePageProps) {
                     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
                     rel="stylesheet"
                 />
-                <meta property="og:title" content="~ Teeth Whitening" />
-                <meta property="og:image" content="/stock-6.jpg" />
+                <meta property="og:title" content="Atlas MBA App Checklist" />
+                <meta property="og:image" content="./screenshot.png" />
             </Head>
             <script
                 defer
