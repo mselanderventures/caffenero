@@ -21,8 +21,8 @@ export interface SecurePageProps {
 
 export default function SecurePage(props: SecurePageProps) {
     const title = props.title
-        ? `${props.title} | Squad Eats`
-        : 'Squad Eats';
+        ? `${props.title} | Atlas MBA`
+        : 'Atlas MBA';
 
     
 
